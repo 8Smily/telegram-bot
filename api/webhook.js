@@ -39,15 +39,4 @@ export default async function handler(req, res) {
 }
 ```
 
-### 4️⃣ اضغط **Commit changes**
 
----
-
-### 5️⃣ بعدين امسح الرسائل القديمة:
-```
-https://api.telegram.org/bot7997008909:AAGCk70HrIz0CaNtFb548jB7q9-p13RuGx0/deleteWebhook?drop_pending_updates=true
-```
-
-### 6️⃣ ثم اربط من جديد:
-```
-https://api.telegram.org/bot7997008909:AAGCk70HrIz0CaNtFb548jB7q9-p13RuGx0/setWebhook?url=https://telegram-bot-three-lake.vercel.app/api/webhook
