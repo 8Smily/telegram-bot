@@ -3,7 +3,9 @@ export default async function handler(req, res) {
     return res.status(200).send('Bot is running!');
   }
 
-  const BOT_TOKEN = "7997008909:AAGg8QxPqrN721oHikAvRtFzwo2Yvutco_A";
+  const BOT_TOKEN = process.env.BOT_TOKEN;
+  const SHEET_ID = "1W0N7o-IdPwrc6AknExUEl4OFv4zenJU0PCoy_4NOMfI";
+  const SHEET_NAME = "BOT_ARC";
   
   try {
     const message = req.body.message;
@@ -11,9 +13,13 @@ export default async function handler(req, res) {
     
     const chatId = message.chat.id;
     const text = message.text.trim();
+    const odooId = message.from.id.toString();
     
     if (text === '/start') {
       await sendMessage(BOT_TOKEN, chatId, '👋 أهلاً فيك!\n\n📝 /register - للتسجيل\n🎮 /id - لعرض بطاقتك');
+    }
+    else if (text === '/register') {
+      await sendMessage(BOT_TOKEN, chatId, '👋 يا هلا فيك!\n\n📝 اكتب اسمك:');
     }
     
   } catch (error) {
